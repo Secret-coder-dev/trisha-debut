@@ -27,8 +27,6 @@ const musicButton =
    MUSIC
 ========================================================= */
 
-let musicStarted = false;
-
 function startMusic() {
 
     if (!music) return;
@@ -36,15 +34,14 @@ function startMusic() {
     music.play()
         .then(() => {
 
-            musicStarted = true;
-
-            musicButton.textContent = "♫";
+            musicButton.textContent =
+                "♫";
 
         })
         .catch(() => {
 
             console.log(
-                "Music requires user interaction."
+                "Music playback requires interaction."
             );
 
         });
@@ -60,13 +57,15 @@ musicButton.addEventListener(
 
             music.play();
 
-            musicButton.textContent = "♫";
+            musicButton.textContent =
+                "♫";
 
         } else {
 
             music.pause();
 
-            musicButton.textContent = "Ⅱ";
+            musicButton.textContent =
+                "Ⅱ";
 
         }
 
@@ -82,21 +81,93 @@ claimButton.addEventListener(
     "click",
     () => {
 
-        mailOpening.classList.add("claimed");
 
-        createSparkles();
+        /*
+         Prevent the animation from
+         being triggered twice.
+        */
+
+        if (
+            mailOpening.classList.contains(
+                "claiming"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+         Add the main animation state.
+        */
+
+        mailOpening.classList.add(
+            "claiming"
+        );
+
+
+        /*
+         Start music because this
+         action comes directly from
+         the visitor's click.
+        */
 
         startMusic();
 
-        claimButton.style.opacity = "0";
 
-        claimButton.style.pointerEvents = "none";
+        /*
+         Button begins disappearing.
+        */
 
-        setTimeout(() => {
+        claimButton.style.pointerEvents =
+            "none";
 
-            claimButton.style.display = "none";
 
-        }, 500);
+        setTimeout(
+            () => {
+
+                claimButton.style.opacity =
+                    "0";
+
+                claimButton.style.transform =
+                    "translateY(15px)";
+
+            },
+            450
+        );
+
+
+        setTimeout(
+            () => {
+
+                claimButton.style.display =
+                    "none";
+
+            },
+            1000
+        );
+
+
+        /*
+         Wait until the envelope
+         has physically emerged.
+        */
+
+        setTimeout(
+            () => {
+
+                mailOpening.classList.add(
+                    "claimed"
+                );
+
+
+                createSparkleBurst();
+
+
+            },
+            1550
+        );
 
     }
 );
@@ -112,11 +183,17 @@ openInvitation.addEventListener(
 
         startMusic();
 
-        document
-            .getElementById("welcome")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+
+        const invitation =
+            document.getElementById(
+                "welcome"
+            );
+
+
+        invitation.scrollIntoView({
+            behavior:
+                "smooth"
+        });
 
     }
 );
@@ -133,9 +210,182 @@ function scrollToSection(id) {
 
     if (!section) return;
 
+
     section.scrollIntoView({
-        behavior: "smooth"
+        behavior:
+            "smooth"
     });
+
+}
+
+
+/* =========================================================
+   SPARKLE BURST
+========================================================= */
+
+function createSparkleBurst() {
+
+
+    const container =
+        document.querySelector(
+            ".mail-opening"
+        );
+
+
+    if (!container) return;
+
+
+    const symbols = [
+        "✦",
+        "✧",
+        "❋",
+        "✦",
+        "✧"
+    ];
+
+
+    /*
+       Create many particles
+       around the envelope.
+    */
+
+    for (
+        let i = 0;
+        i < 48;
+        i++
+    ) {
+
+
+        const sparkle =
+            document.createElement(
+                "span"
+            );
+
+
+        sparkle.className =
+            "sparkle";
+
+
+        sparkle.textContent =
+            symbols[
+                Math.floor(
+                    Math.random()
+                    * symbols.length
+                )
+            ];
+
+
+        sparkle.style.left =
+            "50%";
+
+
+        sparkle.style.top =
+            "40%";
+
+
+        sparkle.style.fontSize =
+            (
+                Math.random() * 18 + 8
+            ) + "px";
+
+
+        sparkle.style.color =
+            i % 2 === 0
+                ? "#C87D87"
+                : "#6B7556";
+
+
+        container.appendChild(
+            sparkle
+        );
+
+
+        /*
+         Random direction.
+        */
+
+        const angle =
+            Math.random()
+            * Math.PI
+            * 2;
+
+
+        const distance =
+            Math.random()
+            * 260 + 80;
+
+
+        const x =
+            Math.cos(angle)
+            * distance;
+
+
+        const y =
+            Math.sin(angle)
+            * distance;
+
+
+        /*
+         Trigger animation.
+        */
+
+        requestAnimationFrame(
+            () => {
+
+                sparkle.style.opacity =
+                    ".85";
+
+
+                sparkle.style.transform =
+                    `
+                    translate(
+                        ${x}px,
+                        ${y}px
+                    )
+                    scale(1)
+                    rotate(180deg)
+                    `;
+
+                sparkle.style.transition =
+                    `
+                    transform 1.5s
+                    cubic-bezier(.2,.8,.2,1),
+                    opacity .5s ease
+                    `;
+
+            }
+        );
+
+
+        /*
+         Fade away.
+        */
+
+        setTimeout(
+            () => {
+
+                sparkle.style.opacity =
+                    "0";
+
+            },
+            750
+        );
+
+
+        /*
+         Remove from DOM.
+        */
+
+        setTimeout(
+            () => {
+
+                sparkle.remove();
+
+            },
+            1700
+        );
+
+    }
 
 }
 
@@ -152,26 +402,38 @@ const eventDate =
 
 function updateCountdown() {
 
+
     const now =
         new Date().getTime();
+
 
     const difference =
         eventDate - now;
 
 
-    if (difference <= 0) {
+    if (
+        difference <= 0
+    ) {
 
-        document.getElementById("days").textContent =
-            "00";
+        document.getElementById(
+            "days"
+        ).textContent = "00";
 
-        document.getElementById("hours").textContent =
-            "00";
 
-        document.getElementById("minutes").textContent =
-            "00";
+        document.getElementById(
+            "hours"
+        ).textContent = "00";
 
-        document.getElementById("seconds").textContent =
-            "00";
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "00";
+
 
         return;
 
@@ -187,44 +449,62 @@ function updateCountdown() {
 
     const hours =
         Math.floor(
-            (difference %
-                (1000 * 60 * 60 * 24)) /
+            (
+                difference %
+                (1000 * 60 * 60 * 24)
+            ) /
             (1000 * 60 * 60)
         );
 
 
     const minutes =
         Math.floor(
-            (difference %
-                (1000 * 60 * 60)) /
+            (
+                difference %
+                (1000 * 60 * 60)
+            ) /
             (1000 * 60)
         );
 
 
     const seconds =
         Math.floor(
-            (difference %
-                (1000 * 60)) /
+            (
+                difference %
+                (1000 * 60)
+            ) /
             1000
         );
 
 
-    document.getElementById("days").textContent =
+    document.getElementById(
+        "days"
+    ).textContent =
         String(days).padStart(2, "0");
 
-    document.getElementById("hours").textContent =
+
+    document.getElementById(
+        "hours"
+    ).textContent =
         String(hours).padStart(2, "0");
 
-    document.getElementById("minutes").textContent =
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
         String(minutes).padStart(2, "0");
 
-    document.getElementById("seconds").textContent =
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
         String(seconds).padStart(2, "0");
 
 }
 
 
 updateCountdown();
+
 
 setInterval(
     updateCountdown,
@@ -233,165 +513,7 @@ setInterval(
 
 
 /* =========================================================
-   SPARKLE EFFECT
-========================================================= */
-
-function createSparkles() {
-
-    const container =
-        document.querySelector(
-            ".mail-opening"
-        );
-
-    if (!container) return;
-
-
-    for (
-        let i = 0;
-        i < 30;
-        i++
-    ) {
-
-        const sparkle =
-            document.createElement(
-                "span"
-            );
-
-        sparkle.textContent =
-            Math.random() > .5
-                ? "✦"
-                : "✧";
-
-
-        sparkle.style.position =
-            "absolute";
-
-        sparkle.style.left =
-            Math.random() * 100 + "%";
-
-        sparkle.style.top =
-            Math.random() * 100 + "%";
-
-        sparkle.style.color =
-            i % 2 === 0
-                ? "#C87D87"
-                : "#6B7556";
-
-        sparkle.style.fontSize =
-            Math.random() * 15 + 8 + "px";
-
-        sparkle.style.pointerEvents =
-            "none";
-
-        sparkle.style.zIndex =
-            "50";
-
-        sparkle.style.opacity =
-            "0";
-
-        sparkle.style.transform =
-            "scale(0)";
-
-        sparkle.style.transition =
-            "all 1.2s ease";
-
-
-        container.appendChild(
-            sparkle
-        );
-
-
-        requestAnimationFrame(
-            () => {
-
-                sparkle.style.opacity =
-                    "0.8";
-
-                sparkle.style.transform =
-                    `translate(
-                        ${Math.random() * 80 - 40}px,
-                        ${Math.random() * 80 - 40}px
-                    ) scale(1)`;
-
-            }
-        );
-
-
-        setTimeout(
-            () => {
-
-                sparkle.style.opacity =
-                    "0";
-
-            },
-            900
-        );
-
-
-        setTimeout(
-            () => {
-
-                sparkle.remove();
-
-            },
-            1400
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   REVEAL SECTIONS ON SCROLL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        ".section-inner"
-    );
-
-
-const revealObserver =
-    new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach(
-                (entry) => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: .15
-        }
-    );
-
-
-revealElements.forEach(
-    (element) => {
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-/* =========================================================
-   PREVENT BROKEN IMAGE FEEL
+   IMAGE FALLBACK
 ========================================================= */
 
 document
@@ -404,10 +526,14 @@ document
                 () => {
 
                     image.style.background =
-                        "linear-gradient(135deg, #F0C4CB, #FBEAD6, #E5BCA9)";
-
-                    image.style.objectFit =
-                        "cover";
+                        `
+                        linear-gradient(
+                            135deg,
+                            #F0C4CB,
+                            #FBEAD6,
+                            #E5BCA9
+                        )
+                        `;
 
                 }
             );
