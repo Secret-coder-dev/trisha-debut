@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trisha | A Decade & Eight</title>
+
+    <meta
+        name="description"
+        content="You are invited to celebrate Trisha's A Decade & Eight."
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         MUSIC
+    ========================================================== -->
+
+    <audio id="music" loop>
+        <source src="assets/music/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicButton" class="music-button" aria-label="Play music">
+        ♫
+    </button>
+
+
+    <!-- =========================================================
+         ENCHANTED MAIL OPENING
+    ========================================================== -->
+
+    <section class="mail-opening" id="home">
+
+        <div class="mail-bg"></div>
+
+        <div class="floating-petal petal-1">✦</div>
+        <div class="floating-petal petal-2">✧</div>
+        <div class="floating-petal petal-3">✦</div>
+        <div class="floating-petal petal-4">✧</div>
+
+        <div class="mail-content">
+
+            <p class="mail-small-title">
+                YOU GOT A
+            </p>
+
+            <h1 class="mail-title">
+                MAIL!
+            </h1>
+
+            <p class="mail-subtitle">
+                A little something special has arrived for you
+            </p>
+
+
+            <!-- MAIL SLOT -->
+
+            <div class="mail-slot-wrapper">
+
+                <div class="mail-slot-shadow"></div>
+
+                <!-- Envelope -->
+                <div class="mail-envelope" id="mailEnvelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-paper">
+                        <span>TRISHA</span>
+                        <small>A DECADE & EIGHT</small>
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="envelope-seal">
+                        T
+                    </div>
+
+                </div>
+
+
+                <!-- Slot -->
+                <div class="mail-slot">
+
+                    <div class="slot-top"></div>
+
+                    <div class="slot-mouth">
+
+                        <div class="slot-inside"></div>
+
+                    </div>
+
+                    <div class="slot-bottom"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CLAIM BUTTON -->
+
+            <button
+                class="claim-button"
+                id="claimButton"
+            >
+                <span>click here to claim your mail</span>
+                <span class="button-arrow">↓</span>
+            </button>
+
+
+            <!-- AFTER CLAIM -->
+
+            <div
+                class="claimed-message"
+                id="claimedMessage"
+            >
+
+                <p>
+                    YOUR INVITATION
+                </p>
+
+                <h2>
+                    HAS ARRIVED
+                </h2>
+
+                <button
+                    class="open-invitation-button"
+                    id="openInvitation"
+                >
+                    OPEN INVITATION
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="mail-footer">
+            scroll with a little magic
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         MAIN INVITATION
+    ========================================================== -->
+
+    <main id="invitation">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="section hero-section" id="welcome">
+
+            <div class="section-background hero-background"></div>
+
+            <div class="enchanted-particles">
+                <span>✦</span>
+                <span>✧</span>
+                <span>✦</span>
+                <span>❋</span>
+                <span>✧</span>
+                <span>✦</span>
+            </div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    YOU ARE CORDIALLY INVITED
+                </p>
+
+                <p class="script-small">
+                    to celebrate
+                </p>
+
+                <h1>
+                    Trisha
+                </h1>
+
+                <div class="hero-divider">
+                    <span>✦</span>
+                </div>
+
+                <h2>
+                    A DECADE & EIGHT
+                </h2>
+
+                <p class="hero-date">
+                    DECEMBER 20, 2026
+                </p>
+
+                <p class="hero-time">
+                    SIX O'CLOCK IN THE EVENING
+                </p>
+
+                <button
+                    class="scroll-button"
+                    onclick="scrollToSection('story')"
+                >
+                    Discover the invitation
+                    <span>↓</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STORY
+        ====================================================== -->
+
+        <section class="section story-section" id="story">
+
+            <div class="section-background story-background"></div>
+
+            <div class="section-inner">
+
+                <p class="eyebrow">
+                    A LITTLE STORY
+                </p>
+
+                <h2 class="section-title">
+                    Eighteen years
+                    <span>of becoming</span>
+                </h2>
+
+                <div class="story-layout">
+
+                    <div class="story-image">
+
+                        <div class="photo-frame">
+                            <img
+                                src="assets/photos/cover.jpg"
+                                alt="Trisha"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="story-text">
+
+                        <p>
+                            Eighteen beautiful years filled with
+                            memories, laughter, dreams, challenges,
+                            and countless moments worth celebrating.
+                        </p>
+
+                        <p>
+                            Now, as a new chapter begins, Trisha
+                            invites you to become part of a night
+                            that will be remembered for years to come.
+                        </p>
+
+                        <div class="signature">
+                            With love,
+                            <strong>Trisha</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COUNTDOWN
+        ====================================================== -->
+
+        <section class="section countdown-section" id="countdownSection">
+
+            <div class="section-background countdown-background"></div>
+
+            <div class="section-inner centered">
+
+                <p class="eyebrow">
+                    COUNTING DOWN TO THE MOMENT
+                </p>
+
+                <h2 class="section-title">
+                    Until we celebrate
+                </h2>
+
+                <div class="countdown" id="countdown">
+
+                    <div class="count-box">
+                        <span id="days">00</span>
+                        <small>DAYS</small>
+                    </div>
+
+                    <div class="count-box">
+                        <span id="hours">00</span>
+                        <small>HOURS</small>
+                    </div>
+
+                    <div class="count-box">
+                        <span id="minutes">00</span>
+                        <small>MINUTES</small>
+                    </div>
+
+                    <div class="count-box">
+                        <span id="seconds">00</span>
+                        <small>SECONDS</small>
+                    </div>
+
+                </div>
+
+                <p class="countdown-note">
+                    December 20, 2026 · 6:00 PM
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EVENT DETAILS
+        ====================================================== -->
+
+        <section class="section details-section" id="details">
+
+            <div class="section-background details-background"></div>
+
+            <div class="section-inner">
+
+                <p class="eyebrow centered">
+                    SAVE THE DATE
+                </p>
+
+                <h2 class="section-title centered">
+                    The Celebration
+                </h2>
+
+                <div class="details-grid">
+
+                    <div class="detail-card">
+
+                        <div class="detail-icon">
+                            ♡
+                        </div>
+
+                        <span>
+                            DATE
+                        </span>
+
+                        <h3>
+                            December 20, 2026
+                        </h3>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <div class="detail-icon">
+                            ✦
+                        </div>
+
+                        <span>
+                            TIME
+                        </span>
+
+                        <h3>
+                            6:00 PM
+                        </h3>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <div class="detail-icon">
+                            ♧
+                        </div>
+
+                        <span>
+                            VENUE
+                        </span>
+
+                        <h3>
+                            Your Venue Here
+                        </h3>
+
+                        <p>
+                            Your Address Here
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="map-container">
+
+                    <div class="map-placeholder">
+
+                        <span>✦</span>
+
+                        <p>
+                            VENUE MAP
+                        </p>
+
+                        <small>
+                            Replace this area with your
+                            Google Maps embed.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GALLERY
+        ====================================================== -->
+
+        <section class="section gallery-section" id="gallery">
+
+            <div class="section-background gallery-background"></div>
+
+            <div class="section-inner">
+
+                <p class="eyebrow centered">
+                    MOMENTS
+                </p>
+
+                <h2 class="section-title centered">
+                    Through the years
+                </h2>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item tall">
+                        <img
+                            src="assets/photos/photo1.jpg"
+                            alt="Memory 1"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="assets/photos/photo2.jpg"
+                            alt="Memory 2"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="assets/photos/photo3.jpg"
+                            alt="Memory 3"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="assets/photos/photo4.jpg"
+                            alt="Memory 4"
+                        >
+                    </div>
+
+                    <div class="gallery-item tall">
+                        <img
+                            src="assets/photos/photo5.jpg"
+                            alt="Memory 5"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="assets/photos/photo6.jpg"
+                            alt="Memory 6"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROGRAM
+        ====================================================== -->
+
+        <section class="section program-section" id="program">
+
+            <div class="section-background program-background"></div>
+
+            <div class="section-inner">
+
+                <p class="eyebrow centered">
+                    THE EVENING
+                </p>
+
+                <h2 class="section-title centered">
+                    Program
+                </h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-time">
+                            6:00 PM
+                        </span>
+
+                        <div>
+                            <h3>
+                                Guest Arrival
+                            </h3>
+
+                            <p>
+                                Welcome and registration
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-time">
+                            6:30 PM
+                        </span>
+
+                        <div>
+                            <h3>
+                                Opening
+                            </h3>
+
+                            <p>
+                                Invocation and welcome remarks
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-time">
+                            7:00 PM
+                        </span>
+
+                        <div>
+                            <h3>
+                                Dinner
+                            </h3>
+
+                            <p>
+                                A wonderful evening with family and friends
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-time">
+                            8:00 PM
+                        </span>
+
+                        <div>
+                            <h3>
+                                18th Birthday Celebration
+                            </h3>
+
+                            <p>
+                                Roses, candles, messages and surprises
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <span class="timeline-time">
+                            9:00 PM
+                        </span>
+
+                        <div>
+                            <h3>
+                                Closing
+                            </h3>
+
+                            <p>
+                                Photos and memories to end the evening
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DRESS CODE
+        ====================================================== -->
+
+        <section class="section dress-section" id="dresscode">
+
+            <div class="section-background dress-background"></div>
+
+            <div class="section-inner centered">
+
+                <p class="eyebrow">
+                    WHAT TO WEAR
+                </p>
+
+                <h2 class="section-title">
+                    Dress Code
+                </h2>
+
+                <p class="dress-description">
+                    Come dressed in something elegant,
+                    comfortable and beautiful.
+                </p>
+
+                <div class="palette">
+
+                    <div class="palette-color">
+
+                        <div
+                            class="color-circle blush"
+                        ></div>
+
+                        <span>
+                            Blush
+                        </span>
+
+                    </div>
+
+
+                    <div class="palette-color">
+
+                        <div
+                            class="color-circle rose"
+                        ></div>
+
+                        <span>
+                            Antique Rose
+                        </span>
+
+                    </div>
+
+
+                    <div class="palette-color">
+
+                        <div
+                            class="color-circle champagne"
+                        ></div>
+
+                        <span>
+                            Champagne
+                        </span>
+
+                    </div>
+
+
+                    <div class="palette-color">
+
+                        <div
+                            class="color-circle thyme"
+                        ></div>
+
+                        <span>
+                            Dried Thyme
+                        </span>
+
+                    </div>
+
+
+                    <div class="palette-color">
+
+                        <div
+                            class="color-circle bisque"
+                        ></div>
+
+                        <span>
+                            Bisque
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="dress-note">
+                    Your presence is the most important part
+                    of the celebration.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RSVP
+        ====================================================== -->
+
+        <section class="section rsvp-section" id="rsvp">
+
+            <div class="section-background rsvp-background"></div>
+
+            <div class="section-inner centered">
+
+                <p class="eyebrow">
+                    KINDLY RESPOND
+                </p>
+
+                <h2 class="section-title">
+                    Will you join us?
+                </h2>
+
+                <p class="rsvp-text">
+                    We would love to celebrate this special
+                    milestone with you.
+                </p>
+
+                <a
+                    href="YOUR_RSVP_LINK_HERE"
+                    target="_blank"
+                    class="rsvp-button"
+                >
+                    RSVP NOW
+                </a>
+
+                <div class="qr-wrapper">
+
+                    <img
+                        src="assets/qr-code.png"
+                        alt="RSVP QR Code"
+                    >
+
+                    <p>
+                        Scan to RSVP
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FINAL
+        ====================================================== -->
+
+        <section class="section final-section" id="final">
+
+            <div class="section-background final-background"></div>
+
+            <div class="final-overlay"></div>
+
+            <div class="final-content">
+
+                <p class="eyebrow">
+                    WITH ALL MY HEART
+                </p>
+
+                <h2>
+                    Thank You
+                </h2>
+
+                <p>
+                    Your presence, love and prayers
+                    will make this celebration
+                    even more meaningful.
+                </p>
+
+                <div class="final-photo">
+
+                    <img
+                        src="assets/photos/final.jpg"
+                        alt="Trisha"
+                    >
+
+                </div>
+
+                <div class="final-name">
+                    Trisha
+                </div>
+
+                <p class="final-date">
+                    A DECADE & EIGHT
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <p>
+            Made with love for Trisha
+        </p>
+
+        <span>
+            ✦
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
